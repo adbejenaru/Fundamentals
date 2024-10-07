@@ -1,4 +1,4 @@
-Pentru începători, variabilele sunt un concept de bază în programare. Ele sunt ca niște **cutiuțe** în care putem **stoca informații** (date) pentru a le folosi mai târziu în program. De exemplu, dacă vrei să reții un număr, un text, sau alte tipuri de informații, poți folosi variabile.
+Variabilele sunt un concept de bază în programare. Ele sunt ca niște **cutiuțe** în care putem **stoca informații** (date) pentru a le folosi mai târziu în program. De exemplu, dacă vrei să reții un număr, un text, sau alte tipuri de informații, poți folosi variabile.
 
 ### Ce trebuie să știi despre variabile:
 1. **Denumirea unei variabile** – fiecare variabilă trebuie să aibă un nume unic. Acesta poate fi ales de tine și trebuie să fie clar, ca să știi ce informație stochează.
