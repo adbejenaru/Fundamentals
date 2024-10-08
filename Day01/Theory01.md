@@ -1,3 +1,61 @@
+Să luăm programul pas cu pas și să explicăm fiecare parte din codul Java:
+
+```java
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+```
+
+### 1. `public class HelloWorld`
+Aceasta definește o **clasă** în Java. În Java, totul este organizat în clase, care sunt șabloane pentru crearea obiectelor. În cazul acesta, clasa este numită `HelloWorld`, și aceasta trebuie să fie numită la fel ca fișierul în care se află (de exemplu, `HelloWorld.java`).
+
+- **public**: Înseamnă că această clasă poate fi accesată din orice altă parte a programului.
+- **class**: Este un cuvânt cheie care definește o clasă.
+- **HelloWorld**: Este numele clasei.
+
+### 2. `public static void main(String[] args)`
+Aceasta este **metoda principală** (sau punctul de intrare) al programului. Când rulezi un program Java, execuția începe de la metoda `main`.
+
+- **public**: Înseamnă că metoda poate fi accesată de oriunde în program.
+- **static**: Înseamnă că această metodă aparține clasei și nu unui obiect instanțiat al clasei.
+- **void**: Aceasta indică faptul că metoda nu returnează nicio valoare.
+- **main**: Este numele metodei principale, care este punctul de start al programului.
+- **String[] args**: Acesta este un parametru care permite programului să primească argumente de comandă sub formă de șiruri de caractere. Dacă rulezi programul din linia de comandă și adaugi argumente, acestea vor fi disponibile în acest array `args`.
+
+### 3. `System.out.println("Hello, World!");`
+Aceasta este instrucțiunea care afișează mesajul "Hello, World!" pe ecran.
+
+- **System**: Este o clasă predefinită în Java, care oferă acces la funcții și metode de bază pentru interacțiunea cu sistemul.
+- **out**: Este un obiect al clasei `System`, care este folosit pentru a trimite date la consola (ecran).
+- **println()**: Este o metodă care afișează textul pe consolă, urmat de un caracter de linie nouă (adică trece pe linia următoare după afișarea textului).
+- `"Hello, World!"`: Acesta este șirul de caractere care va fi afișat pe ecran.
+
+### Cum rulezi programul?
+1. **Scrie codul** într-un fișier numit `HelloWorld.java`.
+2. **Compilează-l** folosind comanda:
+   ```bash
+   javac HelloWorld.java
+   ```
+   Aceasta va genera un fișier `HelloWorld.class`, care conține codul compilat.
+3. **Rulează-l** folosind comanda:
+   ```bash
+   java HelloWorld
+   ```
+   Aceasta va afișa pe ecran:
+   ```
+   Hello, World!
+   ```
+
+### De ce e important acest program?
+- Îți arată structura de bază a unui program Java: o clasă și o metodă principală.
+- Îți oferă primul contact cu sintaxa Java: cum definești clase, metode și cum interacționezi cu consola.
+- Este primul pas în înțelegerea modului în care funcționează Java, un limbaj orientat pe obiecte.
+
+Aceasta este baza, și de aici poți învăța concepte mai avansate cum ar fi variabilele, buclele, condițiile și programarea orientată pe obiecte.
+
+
 ### Ce sunt variabilele în programare
 
 Variabilele sunt un concept de bază în programare. Ele sunt ca niște **cutiuțe** în care putem **stoca informații** (date) pentru a le folosi mai târziu în program. De exemplu, dacă vrei să reții un număr, un text sau alte tipuri de informații, poți folosi variabile.
