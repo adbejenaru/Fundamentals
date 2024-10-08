@@ -2,15 +2,36 @@ Programarea pe calculator este procesul de proiectare, creare, testare și într
 
 **Codul sursă** reprezintă un set de instrucțiuni scrise într-un limbaj de programare, conform unor reguli specifice acelui limbaj. Acest cod este responsabil pentru funcționarea programului, indicând calculatorului sau microcontrolerului ce operațiuni să efectueze. Codul sursă poate fi o modificare a unui program deja existent sau ceva complet nou, creat de la zero.
 
-În domeniul **ingineriei software**, programarea (sau implementarea) este doar una dintre etapele procesului de dezvoltare a unui program. Crearea unui program trece de obicei prin mai multe faze, cum ar fi:
-1. **Analiza cerințelor**: Se stabilește ce trebuie să facă programul, ce probleme trebuie să rezolve și care sunt așteptările utilizatorilor finali.
-2. **Proiectarea sistemului**: În această etapă, se stabilește structura generală a programului, arhitectura și modul în care componentele sale vor funcționa împreună.
-3. **Programarea (implementarea)**: Este momentul în care se scrie efectiv codul sursă. Programatorii creează funcționalitățile stabilite în etapele anterioare, folosind limbaje de programare precum Java, Python, C++, etc.
-4. **Testarea**: După ce codul este scris, programul este testat pentru a se asigura că funcționează corect, fără erori și că îndeplinește toate cerințele stabilite.
-5. **Întreținerea**: După ce programul a fost lansat, el trebuie întreținut și actualizat. Aceasta poate include corectarea erorilor găsite ulterior, adăugarea de noi funcționalități sau optimizarea performanței.
+Pentru a explica **Ciclul de Viață al Dezvoltării Software (SDLC)** în 6 etape pe înțelesul începătorilor în programare, este important să folosești termeni simpli și exemple concrete. Iată cum ai putea să explici fiecare etapă:
 
-Așadar, programarea este o parte esențială a dezvoltării software, dar nu este singura. Ea face parte dintr-un proces mai larg, care implică și alte activități esențiale pentru crearea unui produs software complet și eficient.
+### 1. **Planificarea (Planning)**:
+   - **Explicație simplă**: Înainte să începi să scrii cod, trebuie să îți faci un plan. În această etapă, echipa decide ce va face programul și cum vor organiza munca. Este ca și cum ai face un plan înainte să construiești o casă: decizi cât timp va dura, cât va costa și ce materiale vei folosi.
+   - **Exemplu**: Dacă vrei să faci o aplicație de rețete, întâi te gândești la ce funcții va avea – utilizatorii vor putea să caute rețete, să adauge rețete proprii și să evalueze alte rețete.
 
+### 2. **Analiza cerințelor (Requirements Analysis)**:
+   - **Explicație simplă**: Acum trebuie să te asiguri că înțelegi exact ce vrea clientul sau utilizatorul de la aplicație. În această etapă, discuți cu oamenii care vor folosi programul ca să afli ce probleme au și ce soluții așteaptă.
+   - **Exemplu**: Poate utilizatorii vor să poată salva rețetele lor favorite sau să aibă opțiunea de a filtra rețetele după ingrediente. Acestea sunt cerințele aplicației.
+
+### 3. **Proiectarea sistemului (System Design)**:
+   - **Explicație simplă**: Acum că știi ce trebuie să facă programul, faci un plan detaliat despre cum vei construi aplicația. Este ca și cum ai desena planurile pentru casa ta – decizi unde vor fi camerele, ușile și ferestrele.
+   - **Exemplu**: Pentru aplicația de rețete, decizi cum vor arăta ecranele, cum vor fi salvate rețetele în baza de date și cum va funcționa filtrarea.
+
+### 4. **Implementarea (Implementation)**:
+   - **Explicație simplă**: Aceasta este partea în care începi să scrii efectiv codul, adică să construiești programul. Tot ce ai planificat până acum începe să prindă formă.
+   - **Exemplu**: În această etapă, scrii codul care afișează rețetele, creează conturi pentru utilizatori și salvează datele lor în baza de date. Folosești un limbaj de programare precum Java sau Python pentru a implementa aceste funcții.
+
+### 5. **Testarea (Testing)**:
+   - **Explicație simplă**: După ce ai construit programul, trebuie să te asiguri că funcționează corect. În această etapă, testezi programul pentru a descoperi erori sau probleme și le corectezi înainte de a lansa aplicația.
+   - **Exemplu**: Testezi să vezi dacă aplicația ta de rețete funcționează corect – dacă poți căuta o rețetă, dacă se salvează corect sau dacă filtrarea funcționează bine. Dacă descoperi o eroare (de exemplu, o rețetă nu se salvează), o corectezi.
+
+### 6. **Întreținerea (Maintenance)**:
+   - **Explicație simplă**: După ce aplicația este lansată și utilizatorii o folosesc, poate fi nevoie să faci actualizări sau să repari problemele care apar. Întreținerea înseamnă să te asiguri că aplicația continuă să funcționeze bine și să adaugi funcții noi.
+   - **Exemplu**: Dacă utilizatorii îți spun că vor o funcție nouă (de exemplu, să poată partaja rețetele pe rețelele sociale), adaugi această funcție în aplicație. De asemenea, corectezi orice eroare care apare.
+
+---
+
+### Explicația generală:
+Poți să le explici începătorilor că SDLC este ca un **plan** pentru a face un program, exact cum ai un plan când construiești o casă. Fiecare etapă este ca o parte din procesul de construcție: întâi planifici, apoi te asiguri că ai toate informațiile, desenezi planul, construiești efectiv casa (sau aplicația), te asiguri că totul funcționează corect și, în final, întreții casa pentru a o păstra în stare bună.
 Caracteristici și motive pentru care **Java** este atât de popular:
 
 ### 1. **Limbaj de nivel înalt, orientat pe obiecte (High-level object-oriented language)**:
