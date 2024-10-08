@@ -2,7 +2,8 @@ Programarea pe calculator este procesul de proiectare, creare, testare și într
 
 **Codul sursă** reprezintă un set de instrucțiuni scrise într-un limbaj de programare, conform unor reguli specifice acelui limbaj. Acest cod este responsabil pentru funcționarea programului, indicând calculatorului sau microcontrolerului ce operațiuni să efectueze. Codul sursă poate fi o modificare a unui program deja existent sau ceva complet nou, creat de la zero.
 
-Pentru a explica **Ciclul de Viață al Dezvoltării Software (SDLC)** în 6 etape pe înțelesul începătorilor în programare, este important să folosești termeni simpli și exemple concrete. Iată cum ai putea să explici fiecare etapă:
+**Ciclul de Viață al Dezvoltării Software (SDLC)** 
+SDLC este ca un **plan** pentru a face un program, exact cum ai un plan când construiești o casă. Fiecare etapă este ca o parte din procesul de construcție: întâi planifici, apoi te asiguri că ai toate informațiile, desenezi planul, construiești efectiv casa (sau aplicația), te asiguri că totul funcționează corect și, în final, întreții casa pentru a o păstra în stare bună.
 
 ### 1. **Planificarea (Planning)**:
    - **Explicație simplă**: Înainte să începi să scrii cod, trebuie să îți faci un plan. În această etapă, echipa decide ce va face programul și cum vor organiza munca. Este ca și cum ai face un plan înainte să construiești o casă: decizi cât timp va dura, cât va costa și ce materiale vei folosi.
@@ -30,8 +31,6 @@ Pentru a explica **Ciclul de Viață al Dezvoltării Software (SDLC)** în 6 eta
 
 ---
 
-### Explicația generală:
-Poți să le explici începătorilor că SDLC este ca un **plan** pentru a face un program, exact cum ai un plan când construiești o casă. Fiecare etapă este ca o parte din procesul de construcție: întâi planifici, apoi te asiguri că ai toate informațiile, desenezi planul, construiești efectiv casa (sau aplicația), te asiguri că totul funcționează corect și, în final, întreții casa pentru a o păstra în stare bună.
 Caracteristici și motive pentru care **Java** este atât de popular:
 
 ### 1. **Limbaj de nivel înalt, orientat pe obiecte (High-level object-oriented language)**:
