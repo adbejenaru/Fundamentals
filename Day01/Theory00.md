@@ -59,7 +59,7 @@ Caracteristici și motive pentru care **Java** este atât de popular:
    Deoarece Java este utilizat în multe domenii — de la aplicații enterprise la dezvoltarea de aplicații Android — cererea pentru programatori Java este constantă și ridicată. Multe companii mari, cum ar fi IBM, Google, și Oracle, folosesc Java în mod intensiv. De aceea, programatorii care cunosc bine Java au de obicei oportunități bune de angajare și salarii competitive.
 
 
-
+____________________________________________________________________________________________
    Iată o explicație simplificată a **istoriei limbajului Java** pentru începători:
 
 ### 1. **Nașterea limbajului Java**:
