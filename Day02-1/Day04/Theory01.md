@@ -1,106 +1,124 @@
-Instrucțiunile condiționale în Java permit unui program să ia decizii pe baza unor condiții, ghidând fluxul de execuție în funcție de faptul dacă anumite expresii sunt evaluate ca fiind `true` (adevărat) sau `false` (fals). Iată o explicație a principalelor instrucțiuni condiționale în Java:
+![image](https://github.com/user-attachments/assets/d03c8bc8-8fe7-4119-b6ad-78472d151874)
+Imaginea ilustrează fluxul unui bloc de cod care folosește o declarație `if`. Acest tip de diagramă descrie modul în care programul decide dacă va executa sau nu o secțiune de cod în funcție de evaluarea unei condiții.
 
-### 1. **Instrucțiunea `if`**
-Instrucțiunea `if` este folosită pentru a executa un bloc de cod doar dacă o condiție este adevărată.
+### Explicația diagramei:
+1. **Condition (Condiție)**:
+   - Programul începe prin evaluarea unei condiții. Această condiție este o expresie booleană care poate fi fie `true` (adevărată), fie `false` (falsă).
+   
+2. **IF Statement Block**:
+   - Dacă **condiția** este `true`, se execută blocul de cod care se află în instrucțiunea `if`.
+   
+3. **Rest of the Program (Restul Programului)**:
+   - După executarea blocului `if`, programul continuă să execute restul codului.
+   - Dacă **condiția** este `false`, programul va sări peste blocul `if` și va continua direct cu restul programului.
+
+### Explicație cu exemplu de cod:
 
 ```java
-if (condiție) {
-    // cod care se execută dacă condiția este adevărată
+public class ExempluIf {
+    public static void main(String[] args) {
+        int varsta = 18;
+        
+        // Condiția
+        if (varsta >= 18) {
+            // Blocul de cod din if este executat doar dacă condiția este adevărată
+            System.out.println("Ești major.");
+        }
+        
+        // Restul programului care se execută indiferent de condiție
+        System.out.println("Programul continuă...");
+    }
 }
 ```
 
-**Exemplu:**
+### Explicație a fluxului:
+1. **Condiția** este `varsta >= 18`. Programul verifică dacă această condiție este adevărată.
+   - Dacă `varsta` este 18 sau mai mare, atunci condiția este `true`, și mesajul `"Ești major."` va fi afișat.
+   - Dacă `varsta` ar fi mai mică de 18, atunci condiția ar fi `false`, și acest mesaj nu ar fi afișat.
+
+2. **Blocul `if`**:
+   - Dacă condiția este adevărată, instrucțiunea din blocul `if` va fi executată, în acest caz se va afișa `"Ești major."`.
+
+3. **Restul programului**:
+   - Indiferent dacă blocul `if` a fost executat sau nu, programul va afișa `"Programul continuă..."`, pentru că acesta este restul codului care se execută indiferent de rezultat.
+
+### Exemplu cu ieșire:
+Dacă `varsta = 18`, ieșirea va fi:
+```
+Ești major.
+Programul continuă...
+```
+
+Dacă `varsta = 16`, ieșirea va fi:
+```
+Programul continuă...
+``` 
+
+Astfel, în funcție de condiția dată, se decide dacă blocul de cod din `if` va fi executat sau nu.
+![image](https://github.com/user-attachments/assets/3aafeaf7-503a-484d-90ea-3c360d6190fd)
+
+Imaginea arată fluxul unui bloc de cod care utilizează o instrucțiune **`if-else`**. Aceasta este o extindere a structurii simple `if`, unde, dacă condiția evaluată este **falsă**, se va executa un bloc de cod alternativ definit în instrucțiunea **`else`**.
+
+### Explicația diagramei:
+
+1. **Statement (Declarație/Condiție)**:
+   - La fel ca în cazul blocului `if`, programul începe prin evaluarea unei **condiții**. Această condiție este o expresie booleană care poate fi fie `true` (adevărată), fie `false` (falsă).
+   
+2. **IF Block Instructions**:
+   - Dacă **condiția** este `true`, se execută blocul de cod din instrucțiunea `if`.
+
+3. **Else Block Instructions**:
+   - Dacă **condiția** este `false`, se execută blocul de cod din instrucțiunea `else`.
+
+4. **Restul Programului**:
+   - După ce se execută fie blocul `if`, fie blocul `else`, programul continuă cu restul codului.
+
+### Explicație cu exemplu de cod:
 
 ```java
-int număr = 10;
-if (număr > 5) {
-    System.out.println("Numărul este mai mare decât 5.");
+public class ExempluIfElse {
+    public static void main(String[] args) {
+        int varsta = 16;
+        
+        // Condiția
+        if (varsta >= 18) {
+            // Blocul de cod din if este executat dacă condiția este adevărată
+            System.out.println("Ești major.");
+        } else {
+            // Blocul de cod din else este executat dacă condiția este falsă
+            System.out.println("Nu ești major.");
+        }
+        
+        // Restul programului care se execută indiferent de condiție
+        System.out.println("Programul continuă...");
+    }
 }
 ```
 
-În acest caz, mesajul va fi afișat doar dacă condiția `număr > 5` este adevărată.
+### Explicație a fluxului:
+1. **Condiția** este `varsta >= 18`. Programul verifică dacă această condiție este adevărată.
+   - Dacă `varsta` este 18 sau mai mare, atunci condiția este `true` și mesajul `"Ești major."` va fi afișat.
+   - Dacă `varsta` este mai mică de 18, atunci condiția este `false` și mesajul `"Nu ești major."` va fi afișat.
 
-### 2. **Instrucțiunea `if-else`**
-Instrucțiunea `if-else` este o extensie a `if`, care execută un bloc de cod dacă condiția este adevărată și un alt bloc de cod dacă este falsă.
+2. **Blocul `else`**:
+   - Dacă condiția este `false`, instrucțiunea din blocul `else` va fi executată, afișând mesajul `"Nu ești major."`.
 
-```java
-if (condiție) {
-    // cod care se execută dacă condiția este adevărată
-} else {
-    // cod care se execută dacă condiția este falsă
-}
+3. **Restul programului**:
+   - Indiferent dacă blocul `if` sau blocul `else` a fost executat, programul va afișa `"Programul continuă..."` pentru că acesta este restul codului care se execută indiferent de rezultat.
+
+### Exemplu cu ieșire:
+Dacă `varsta = 16`, ieșirea va fi:
+```
+Nu ești major.
+Programul continuă...
 ```
 
-**Exemplu:**
-
-```java
-int număr = 3;
-if (număr > 5) {
-    System.out.println("Numărul este mai mare decât 5.");
-} else {
-    System.out.println("Numărul nu este mai mare decât 5.");
-}
+Dacă `varsta = 19`, ieșirea va fi:
+```
+Ești major.
+Programul continuă...
 ```
 
-### 3. **Instrucțiunea `if-else if-else`**
-Aceasta este folosită atunci când există mai multe condiții de evaluat. Se evaluează fiecare condiție în ordine și se execută primul bloc de cod a cărui condiție este adevărată.
-
-```java
-if (condiție1) {
-    // cod care se execută dacă condiția1 este adevărată
-} else if (condiție2) {
-    // cod care se execută dacă condiția2 este adevărată
-} else {
-    // cod care se execută dacă niciuna dintre condiții nu este adevărată
-}
-```
-
-**Exemplu:**
-
-```java
-int număr = 7;
-if (număr > 10) {
-    System.out.println("Numărul este mai mare decât 10.");
-} else if (număr > 5) {
-    System.out.println("Numărul este mai mare decât 5 dar mai mic sau egal cu 10.");
-} else {
-    System.out.println("Numărul este 5 sau mai mic.");
-}
-```
-
-### 4. **Instrucțiunea `switch`**
-`switch` este o alternativă la `if-else if-else` atunci când se compară o valoare cu mai multe cazuri posibile. Este utilă mai ales când lucrăm cu valori fixe, cum ar fi întregi sau șiruri.
-
-```java
-switch (expresie) {
-    case valoare1:
-        // cod pentru valoare1
-        break;
-    case valoare2:
-        // cod pentru valoare2
-        break;
-    default:
-        // cod care se execută dacă nicio valoare nu se potrivește
-}
-```
-
-**Exemplu:**
-
-```java
-int ziua = 2;
-switch (ziua) {
-    case 1:
-        System.out.println("Luni");
-        break;
-    case 2:
-        System.out.println("Marți");
-        break;
-    default:
-        System.out.println("Zi necunoscută");
-}
-```
-
-În acest exemplu, dacă `ziua` este 2, va afișa "Marți".
-
-### Concluzie
-Instrucțiunile condiționale sunt esențiale pentru a controla fluxul de execuție în Java. Ele permit programului să ia decizii și să execute cod diferit în funcție de starea anumitor condiții.
+### Observații:
+- Structura `if-else` este utilă atunci când ai nevoie de două căi posibile: o cale pentru când condiția este adevărată și o altă cale pentru când condiția este falsă.
+- După ce se execută fie blocul `if`, fie blocul `else`, programul continuă cu restul instrucțiunilor.
