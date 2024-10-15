@@ -1,176 +1,161 @@
-Desigur! Iată mai multe exemple de instrucțiuni condiționale în Java, explicate detaliat:
+În Java, există mai multe modalități de a combina instrucțiunile `if` pentru a gestiona diferite cazuri și condiții. Mai jos sunt câteva exemple comune pentru a arăta cum putem extinde și combina blocurile `if`.
 
-### 1. **Exemplu simplu cu `if`**
+### 1. **`if-else` standard**
+Acesta este cazul de bază, unde există o condiție și două căi: una pentru când condiția este adevărată și alta pentru când este falsă.
 
+#### Exemplu:
 ```java
-int temperatură = 30;
+public class IfElseExample {
+    public static void main(String[] args) {
+        int varsta = 20;
 
-if (temperatură > 25) {
-    System.out.println("Este cald afară.");
+        if (varsta >= 18) {
+            System.out.println("Ești major.");
+        } else {
+            System.out.println("Nu ești major.");
+        }
+    }
 }
 ```
-Aici, mesajul "Este cald afară" va fi afișat doar dacă temperatura este mai mare de 25.
 
----
+### 2. **`if-else if-else` (ramuri multiple)**
+Aceasta este o variantă extinsă în care ai mai multe condiții posibile. Dacă o condiție este adevărată, blocul respectiv va fi executat și celelalte ramuri vor fi ignorate.
 
-### 2. **Exemplu cu `if-else`**
-
+#### Exemplu:
 ```java
-int oreDormite = 6;
+public class IfElseIfExample {
+    public static void main(String[] args) {
+        int nota = 85;
 
-if (oreDormite >= 8) {
-    System.out.println("Ai dormit suficient.");
-} else {
-    System.out.println("Nu ai dormit suficient.");
+        if (nota >= 90) {
+            System.out.println("Ai primit nota A.");
+        } else if (nota >= 80) {
+            System.out.println("Ai primit nota B.");
+        } else if (nota >= 70) {
+            System.out.println("Ai primit nota C.");
+        } else {
+            System.out.println("Ai primit nota D.");
+        }
+    }
 }
 ```
-Dacă valoarea variabilei `oreDormite` este mai mică de 8, va afișa "Nu ai dormit suficient."
 
----
+### 3. **`if` fără `else`**
+Poți folosi doar instrucțiunea `if`, fără blocul `else`, atunci când vrei să execuți un bloc de cod doar dacă condiția este adevărată. Dacă nu este, programul va continua fără să facă nimic în mod specific pentru ramura falsă.
 
-### 3. **Exemplu cu `if-else if-else`**
-
+#### Exemplu:
 ```java
-int punctaj = 75;
+public class IfWithoutElse {
+    public static void main(String[] args) {
+        int varsta = 18;
 
-if (punctaj >= 90) {
-    System.out.println("Ai primit nota A.");
-} else if (punctaj >= 80) {
-    System.out.println("Ai primit nota B.");
-} else if (punctaj >= 70) {
-    System.out.println("Ai primit nota C.");
-} else {
-    System.out.println("Ai primit nota D.");
+        if (varsta >= 18) {
+            System.out.println("Ești major.");
+        }
+        // Nu există else, programul continuă direct
+        System.out.println("Programul continuă...");
+    }
 }
 ```
-În acest exemplu, programul verifică mai multe condiții și atribuie o notă în funcție de punctaj. Pentru un punctaj de 75, mesajul afișat va fi "Ai primit nota C."
 
----
+### 4. **Combinarea mai multor condiții (`&&` și `||`)**
+Instrucțiunile `if` pot folosi operatori logici precum **`&&`** (și) și **`||`** (sau) pentru a combina mai multe condiții.
 
-### 4. **Exemplu cu `switch`**
-
+#### Exemplu cu `&&` (AND - ambele condiții trebuie să fie adevărate):
 ```java
-int ziuaSaptamanii = 4;
+public class IfAndOperator {
+    public static void main(String[] args) {
+        int varsta = 25;
+        boolean arePermis = true;
 
-switch (ziuaSaptamanii) {
-    case 1:
-        System.out.println("Luni");
-        break;
-    case 2:
-        System.out.println("Marți");
-        break;
-    case 3:
-        System.out.println("Miercuri");
-        break;
-    case 4:
-        System.out.println("Joi");
-        break;
-    case 5:
-        System.out.println("Vineri");
-        break;
-    case 6:
-        System.out.println("Sâmbătă");
-        break;
-    case 7:
-        System.out.println("Duminică");
-        break;
-    default:
-        System.out.println("Zi necunoscută");
+        if (varsta >= 18 && arePermis) {
+            System.out.println("Poți conduce o mașină.");
+        } else {
+            System.out.println("Nu poți conduce o mașină.");
+        }
+    }
 }
 ```
-În acest exemplu, programul va afișa "Joi" deoarece variabila `ziuaSaptamanii` are valoarea 4. Dacă ar avea o altă valoare în afara intervalului 1-7, s-ar afișa "Zi necunoscută".
 
----
-
-### 5. **Exemplu cu Ternary Operator (`?:`)**
-
+#### Exemplu cu `||` (OR - una dintre condiții trebuie să fie adevărată):
 ```java
-int vârstă = 20;
-String status = (vârstă >= 18) ? "Adult" : "Minor";
-System.out.println("Status: " + status);
-```
-Aici, operatorul ternar decide în funcție de valoarea variabilei `vârstă`. Dacă `vârstă` este 18 sau mai mare, `status` va fi "Adult"; altfel, va fi "Minor". În acest caz, se va afișa "Status: Adult".
+public class IfOrOperator {
+    public static void main(String[] args) {
+        int varsta = 17;
+        boolean arePermisSpecial = true;
 
----
-
-### 6. **Exemplu cu `if` într-un context de verificare a unui an bisect**
-
-```java
-int an = 2024;
-
-if ((an % 4 == 0 && an % 100 != 0) || (an % 400 == 0)) {
-    System.out.println(an + " este an bisect.");
-} else {
-    System.out.println(an + " nu este an bisect.");
+        if (varsta >= 18 || arePermisSpecial) {
+            System.out.println("Poți conduce o mașină.");
+        } else {
+            System.out.println("Nu poți conduce o mașină.");
+        }
+    }
 }
 ```
-În acest exemplu, se verifică dacă un an este bisect. Pentru anul 2024, condiția este adevărată, așa că se va afișa "2024 este an bisect."
 
----
+### 5. **`if` imbricat (nested if)**
+Un `if` poate fi inclus în interiorul altui `if`, caz în care evaluarea este mai complexă și depinde de rezultatul ambelor condiții.
 
-### 7. **Exemplu cu `if` pentru verificarea parității unui număr**
-
+#### Exemplu:
 ```java
-int număr = 9;
+public class NestedIfExample {
+    public static void main(String[] args) {
+        int varsta = 20;
+        boolean arePermis = true;
 
-if (număr % 2 == 0) {
-    System.out.println("Numărul este par.");
-} else {
-    System.out.println("Numărul este impar.");
+        if (varsta >= 18) {
+            if (arePermis) {
+                System.out.println("Poți conduce o mașină.");
+            } else {
+                System.out.println("Ai nevoie de permis pentru a conduce.");
+            }
+        } else {
+            System.out.println("Nu ești suficient de mare pentru a conduce.");
+        }
+    }
 }
 ```
-Acest cod verifică dacă un număr este par sau impar. În cazul numărului 9, va afișa "Numărul este impar."
 
----
+### 6. **Ternary Operator (`? :`)**
+Operatorul ternar este o versiune concisă a unei instrucțiuni `if-else`, folosită pentru expresii simple.
 
-### 8. **Exemplu cu `switch` pentru a selecta o operațiune matematică simplă**
-
+#### Exemplu:
 ```java
-char operator = '+';
-int număr1 = 5, număr2 = 3;
-int rezultat;
+public class TernaryExample {
+    public static void main(String[] args) {
+        int varsta = 18;
 
-switch (operator) {
-    case '+':
-        rezultat = număr1 + număr2;
-        System.out.println("Rezultatul este: " + rezultat);
-        break;
-    case '-':
-        rezultat = număr1 - număr2;
-        System.out.println("Rezultatul este: " + rezultat);
-        break;
-    case '*':
-        rezultat = număr1 * număr2;
-        System.out.println("Rezultatul este: " + rezultat);
-        break;
-    case '/':
-        rezultat = număr1 / număr2;
-        System.out.println("Rezultatul este: " + rezultat);
-        break;
-    default:
-        System.out.println("Operator necunoscut.");
+        String mesaj = (varsta >= 18) ? "Ești major." : "Nu ești major.";
+        System.out.println(mesaj);
+    }
 }
 ```
-În acest exemplu, pentru operatorul `+`, se va afișa "Rezultatul este: 8".
 
----
+### 7. **Switch vs. `if-else`**
+Când ai mai multe cazuri posibile pentru o singură variabilă, poți folosi `switch` în loc de un lanț lung de `if-else`. Totuși, `if-else` este mai flexibil, deoarece permite compararea unor condiții mai complexe.
 
-### 9. **Exemplu de combinare a mai multor condiții cu `if-else if-else`**
-
+#### Exemplu:
 ```java
-int vârstă = 45;
-boolean angajat = true;
+public class SwitchExample {
+    public static void main(String[] args) {
+        int ziuaSaptamanii = 3;
 
-if (vârstă < 18) {
-    System.out.println("Nu este eligibil pentru muncă.");
-} else if (vârstă >= 18 && angajat) {
-    System.out.println("Este angajat.");
-} else {
-    System.out.println("Este adult, dar nu este angajat.");
+        switch (ziuaSaptamanii) {
+            case 1:
+                System.out.println("Luni");
+                break;
+            case 2:
+                System.out.println("Marți");
+                break;
+            case 3:
+                System.out.println("Miercuri");
+                break;
+            default:
+                System.out.println("Altă zi a săptămânii.");
+        }
+    }
 }
 ```
-Acest exemplu verifică dacă o persoană este minoră, angajată sau adultă, dar neangajată.
 
----
-
-Aceste exemple acoperă o varietate de cazuri de utilizare a instrucțiunilor condiționale în Java, fiecare demonstrând cum poți controla fluxul execuției programului pe baza diferitelor condiții.
+### Concluzie:
+Poți combina instrucțiuni `if` în diverse moduri, în funcție de cerințele aplicației. `if-else`, `else if`, combinarea condițiilor cu `&&` și `||`, utilizarea operatorului ternar, și instrucțiuni `if` imbricate oferă multă flexibilitate și putere de control în fluxul programului.
