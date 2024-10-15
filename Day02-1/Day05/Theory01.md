@@ -1,163 +1,189 @@
-Pentru a evita utilizarea `nested if` (instrucțiuni `if` imbricate), poți folosi diverse strategii, precum:
+### Buclă (Loop) în Java
 
-1. **Combinarea condițiilor cu operatori logici** (`&&`, `||`).
-2. **Returnarea timpurie** în metode (cunoscută ca "early return").
-3. **Refactorizarea condițiilor complexe în metode separate**.
-4. **Utilizarea blocurilor `else if`** pentru a organiza mai bine condițiile.
+**Bucle** (sau **loops**) sunt structuri de control folosite pentru a repeta o secțiune de cod de mai multe ori, până când o anumită condiție este îndeplinită. Ele sunt utile când dorim să executăm aceleași instrucțiuni în mod repetat, fără a le scrie de mai multe ori.
 
-Mai jos sunt câteva exemple care oferă alternative la `nested if`.
+În Java, există patru tipuri principale de bucle:
+1. **`for`**
+2. **`while`**
+3. **`do-while`**
+4. **`for-each`** (folosit pentru a itera prin colecții sau array-uri)
 
----
+### 1. **Bucla `for`**
 
-### 1. **Combinarea condițiilor cu operatorul `&&` (AND)**
+Bucla `for` este utilizată atunci când știi dinainte de câte ori dorești să repeți o secțiune de cod. Se compune din trei părți:
+- Inițializarea variabilei de control.
+- Condiția care verifică dacă bucla trebuie să continue.
+- Incrementează sau decrementează variabila de control.
 
-În loc să scrii un `if` imbricat, poți combina mai multe condiții folosind operatorul logic `&&`, astfel încât toate condițiile să fie evaluate simultan. Această abordare simplifică structura și face codul mai ușor de citit.
+#### Sintaxă:
 
-#### Exemplu fără `nested if`:
 ```java
-public class NoNestedIfExample {
-    public static void main(String[] args) {
-        int varsta = 20;
-        boolean arePermis = true;
-        boolean masinaFunctionala = true;
+for (initializare; conditie; incrementare/decrementare) {
+    // cod care se execută în buclă
+}
+```
 
-        // Verificăm toate condițiile în același `if` folosind operatorul AND (&&)
-        if (varsta >= 18 && arePermis && masinaFunctionala) {
-            System.out.println("Poți pleca la drum.");
-        } else if (varsta < 18) {
-            System.out.println("Nu ești suficient de mare pentru a conduce.");
-        } else if (!arePermis) {
-            System.out.println("Ai nevoie de permis pentru a conduce.");
-        } else {
-            System.out.println("Mașina nu funcționează.");
+#### Exemplu:
+
+```java
+public class ForLoopExample {
+    public static void main(String[] args) {
+        // Bucla for care numără de la 1 la 5
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("i = " + i);
         }
     }
 }
 ```
 
-### Explicație:
-- Toate condițiile (`varsta >= 18`, `arePermis`, `masinaFunctionala`) sunt evaluate simultan în aceeași instrucțiune `if`.
-- Dacă toate sunt adevărate, se afișează mesajul că persoana poate pleca la drum.
-- În caz contrar, se tratează fiecare posibilă situație în blocurile `else if`.
+#### Explicație:
+- **`int i = 1`**: Inițializarea. Variabila `i` este inițializată cu valoarea 1.
+- **`i <= 5`**: Condiția de continuare a buclei. Bucla se repetă atât timp cât `i` este mai mic sau egal cu 5.
+- **`i++`**: Incrementează valoarea lui `i` după fiecare iterație.
 
----
+### 2. **Bucla `while`**
 
-### 2. **Returnare timpurie (Early Return)**
+Bucla `while` repetă o secțiune de cod atâta timp cât condiția specificată este adevărată. Se folosește când nu știi dinainte de câte ori se va repeta bucla, ci doar când se va opri (pe baza condiției).
 
-Dacă scrii o metodă și vrei să eviți `nested if`, poți folosi `return` pentru a ieși din metodă imediat ce o condiție este falsă. Astfel, codul devine mai clar și nu mai trebuie să te complici cu multe blocuri de cod imbricate.
+#### Sintaxă:
 
-#### Exemplu cu returnare timpurie:
 ```java
-public class EarlyReturnExample {
-
-    public static void verificaConducere(int varsta, boolean arePermis, boolean masinaFunctionala) {
-        if (varsta < 18) {
-            System.out.println("Nu ești suficient de mare pentru a conduce.");
-            return; // Ieșim din metodă
-        }
-
-        if (!arePermis) {
-            System.out.println("Ai nevoie de permis pentru a conduce.");
-            return; // Ieșim din metodă
-        }
-
-        if (!masinaFunctionala) {
-            System.out.println("Mașina nu funcționează.");
-            return; // Ieșim din metodă
-        }
-
-        // Dacă toate condițiile sunt îndeplinite, continuăm
-        System.out.println("Poți pleca la drum.");
-    }
-
-    public static void main(String[] args) {
-        verificaConducere(20, true, true);  // Poți pleca la drum.
-        verificaConducere(16, true, true);  // Nu ești suficient de mare pentru a conduce.
-        verificaConducere(20, false, true); // Ai nevoie de permis pentru a conduce.
-    }
+while (conditie) {
+    // cod care se execută în buclă
 }
 ```
 
-### Explicație:
-- Folosim `return` pentru a ieși din metodă imediat ce o condiție este falsă.
-- Acest lucru elimină necesitatea `else`-urilor și face codul mai simplu și mai curat.
+#### Exemplu:
 
----
-
-### 3. **Mutarea logicii în metode separate**
-
-Dacă ai condiții complexe și ai nevoie de claritate, poți muta fiecare verificare într-o metodă separată, care să returneze un `boolean`. Apoi, poți combina rezultatele acestor metode.
-
-#### Exemplu cu metode separate:
 ```java
-public class SeparateMethodsExample {
-
-    public static boolean esteMajor(int varsta) {
-        return varsta >= 18;
-    }
-
-    public static boolean arePermis(boolean arePermis) {
-        return arePermis;
-    }
-
-    public static boolean esteMasinaFunctionala(boolean masinaFunctionala) {
-        return masinaFunctionala;
-    }
-
+public class WhileLoopExample {
     public static void main(String[] args) {
-        int varsta = 20;
-        boolean permis = true;
-        boolean masina = true;
-
-        if (esteMajor(varsta) && arePermis(permis) && esteMasinaFunctionala(masina)) {
-            System.out.println("Poți pleca la drum.");
-        } else {
-            System.out.println("Nu poți pleca la drum.");
+        int i = 1;
+        
+        // Bucla while care se repetă atâta timp cât i este mai mic sau egal cu 5
+        while (i <= 5) {
+            System.out.println("i = " + i);
+            i++;  // Incrementarea variabilei pentru a evita o buclă infinită
         }
     }
 }
 ```
 
-### Explicație:
-- Am mutat fiecare verificare într-o metodă separată (`esteMajor()`, `arePermis()` și `esteMasinaFunctionala()`).
-- Apoi, toate aceste metode sunt apelate într-un singur `if` pentru a decide dacă persoana poate pleca la drum.
+#### Explicație:
+- **`i <= 5`**: Condiția buclei. Atâta timp cât `i` este mai mic sau egal cu 5, bucla se va repeta.
+- **`i++`**: După fiecare iterație, valoarea lui `i` este incrementată pentru a apropia bucla de finalizare.
 
----
+### 3. **Bucla `do-while`**
 
-### 4. **Utilizarea `else if`**
+Bucla `do-while` este similară cu bucla `while`, dar diferența principală este că secțiunea de cod din buclă se execută **cel puțin o dată**, chiar dacă condiția este falsă de la început.
 
-Poți folosi `else if` pentru a trata cazuri diferite, fără a imbrica mai multe `if`-uri.
+#### Sintaxă:
 
-#### Exemplu cu `else if`:
 ```java
-public class ElseIfExample {
-    public static void main(String[] args) {
-        int varsta = 20;
-        boolean arePermis = false;
-        boolean masinaFunctionala = true;
+do {
+    // cod care se execută în buclă
+} while (conditie);
+```
 
-        if (varsta < 18) {
-            System.out.println("Nu ești suficient de mare pentru a conduce.");
-        } else if (!arePermis) {
-            System.out.println("Ai nevoie de permis pentru a conduce.");
-        } else if (!masinaFunctionala) {
-            System.out.println("Mașina nu funcționează.");
-        } else {
-            System.out.println("Poți pleca la drum.");
+#### Exemplu:
+
+```java
+public class DoWhileLoopExample {
+    public static void main(String[] args) {
+        int i = 1;
+        
+        // Bucla do-while care se execută cel puțin o dată
+        do {
+            System.out.println("i = " + i);
+            i++;
+        } while (i <= 5);
+    }
+}
+```
+
+#### Explicație:
+- În bucla `do-while`, codul din buclă se execută cel puțin o dată, chiar dacă condiția este falsă, deoarece condiția este evaluată **după** executarea codului.
+- **`while (i <= 5)`**: Bucla se repetă atâta timp cât `i` este mai mic sau egal cu 5.
+
+### 4. **Bucla `for-each`**
+
+Bucla `for-each` este utilizată pentru a itera prin colecții (cum ar fi array-uri, liste) și este utilă atunci când nu ai nevoie să controlezi indexul. Este o formă simplificată a buclei `for`.
+
+#### Sintaxă:
+
+```java
+for (tip variabila : colectie) {
+    // cod care se execută în buclă
+}
+```
+
+#### Exemplu:
+
+```java
+public class ForEachLoopExample {
+    public static void main(String[] args) {
+        int[] numere = {1, 2, 3, 4, 5};
+        
+        // Bucla for-each care iterează printr-un array
+        for (int numar : numere) {
+            System.out.println("Număr: " + numar);
         }
     }
 }
 ```
 
-### Explicație:
-- Fiecare condiție este tratată în cadrul unui bloc separat `else if`.
-- Această abordare evită imbricarea `if`-urilor și face ca fiecare condiție să fie clară și gestionată independent.
+#### Explicație:
+- **`for (int numar : numere)`**: Bucla iterează prin fiecare element din array-ul `numere` și stochează valoarea curentă în variabila `numar`.
 
 ---
+
+### Controlul buclelor: `break` și `continue`
+
+#### **`break`**
+- `break` este folosit pentru a **întrerupe** bucla imediat, chiar dacă condiția de continuare este încă adevărată.
+- Este util când vrei să oprești bucla înainte ca aceasta să termine în mod natural.
+
+#### Exemplu cu `break`:
+
+```java
+public class BreakExample {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 5; i++) {
+            if (i == 3) {
+                break;  // Oprește bucla când i este 3
+            }
+            System.out.println("i = " + i);
+        }
+    }
+}
+```
+
+#### **`continue`**
+- `continue` este folosit pentru a **sări** peste restul codului din buclă pentru iterația curentă și a trece direct la următoarea iterație.
+
+#### Exemplu cu `continue`:
+
+```java
+public class ContinueExample {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 5; i++) {
+            if (i == 3) {
+                continue;  // Sare peste iterația când i este 3
+            }
+            System.out.println("i = " + i);
+        }
+    }
+}
+```
+
+---
+
+### Diferențe între tipurile de bucle:
+
+- **`for`** este ideal atunci când știi de câte ori vrei să repeți o acțiune.
+- **`while`** este util când vrei să repeți o acțiune atâta timp cât o condiție este adevărată și nu știi dinainte câte iterații vor fi.
+- **`do-while`** este asemănător cu `while`, dar se execută cel puțin o dată, chiar dacă condiția este falsă.
+- **`for-each`** este foarte util atunci când lucrezi cu colecții de date și vrei să parcurgi fiecare element.
 
 ### Concluzie:
-Folosirea alternativelor la `nested if` ajută la menținerea codului mai clar, mai ușor de înțeles și mai ușor de întreținut. Printre soluțiile alternative, cele mai comune sunt:
-1. **Combinarea condițiilor** cu operatori logici.
-2. **Returnarea timpurie** din metode pentru a evita blocuri suplimentare de cod.
-3. **Refactorizarea condițiilor în metode separate**.
-4. **Utilizarea `else if`** pentru a trata mai multe cazuri în locul imbricării.
+Buclele sunt esențiale în Java pentru a repeta secțiuni de cod și pentru a automatiza sarcinile repetitive. Alegerea buclei potrivite depinde de problema pe care o rezolvi și de modul în care trebuie să controlezi numărul de iterații.
