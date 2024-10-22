@@ -116,3 +116,207 @@ Exemple de intervale în expresii regulate:
 - În Java, folosim clasele **Pattern** și **Matcher** pentru a lucra cu expresii regulate. 
 
 Expresiile regulate sunt extrem de utile în situații precum validarea formatului datelor, căutarea de pattern-uri în text sau înlocuirea unor secvențe într-un șir.
+
+Sigur! Iată câteva exemple simple și ușor de înțeles despre cum să folosești expresiile regulate în Java. Fiecare exemplu va ilustra o situație comună și cum se poate rezolva folosind regex.
+
+---
+
+### 1. **Validarea unui număr de telefon simplu**
+Acest exemplu validează dacă un număr de telefon este format din exact 10 cifre.
+
+```java
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
+public class PhoneValidation {
+    public static void main(String[] args) {
+        String phoneNumber = "0745123456";  // Număr de telefon format din 10 cifre
+        
+        // Expresia regulată: exact 10 cifre
+        String regex = "\\d{10}";
+        
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(phoneNumber);
+        
+        if (matcher.matches()) {
+            System.out.println("Număr de telefon valid!");
+        } else {
+            System.out.println("Număr de telefon invalid!");
+        }
+    }
+}
+```
+
+**Explicație:**
+- **`\\d{10}`**: `\\d` înseamnă o cifră, iar `{10}` înseamnă că trebuie să fie exact 10 cifre.
+
+---
+
+### 2. **Verificarea unui șir care conține doar litere mari**
+Acest exemplu verifică dacă un șir de caractere conține doar litere mari.
+
+```java
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
+public class UppercaseValidation {
+    public static void main(String[] args) {
+        String text = "HELLO";  // Șir format doar din litere mari
+        
+        // Expresie regulată: doar litere mari
+        String regex = "^[A-Z]+$";
+        
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(text);
+        
+        if (matcher.matches()) {
+            System.out.println("Textul conține doar litere mari!");
+        } else {
+            System.out.println("Textul NU conține doar litere mari!");
+        }
+    }
+}
+```
+
+**Explicație:**
+- **`^[A-Z]+$`**: `^[A-Z]+$` verifică dacă șirul începe și se termină cu litere mari (`A-Z`), iar `+` înseamnă că trebuie să fie una sau mai multe litere mari.
+
+---
+
+### 3. **Înlocuirea tuturor cifrelor dintr-un text cu `#`**
+Acest exemplu înlocuiește toate cifrele dintr-un text cu caracterul `#`.
+
+```java
+public class ReplaceNumbers {
+    public static void main(String[] args) {
+        String text = "Salut, am 3 câini și 2 pisici.";  // Textul care conține cifre
+        
+        // Înlocuim toate cifrele cu #
+        String rezultat = text.replaceAll("\\d", "#");
+        System.out.println("Text modificat: " + rezultat);
+    }
+}
+```
+
+**Explicație:**
+- **`\\d`**: Reprezintă orice cifră. `replaceAll()` înlocuiește toate cifrele din text cu caracterul `#`.
+
+---
+
+### 4. **Extrage doar literele dintr-un șir mixt**
+Acest exemplu extrage doar literele dintr-un șir care conține atât litere, cât și cifre.
+
+```java
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
+public class ExtractLetters {
+    public static void main(String[] args) {
+        String text = "a1b2c3d4e5f6";  // Șir mixt cu litere și cifre
+        
+        // Expresie regulată pentru extragerea literelor
+        String regex = "[a-zA-Z]";
+        
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(text);
+        
+        System.out.print("Litere găsite: ");
+        while (matcher.find()) {
+            System.out.print(matcher.group());
+        }
+    }
+}
+```
+
+**Explicație:**
+- **`[a-zA-Z]`**: Găsește orice literă mică (`a-z`) sau literă mare (`A-Z`).
+- **`matcher.find()`**: Caută toate potrivirile în șirul text.
+
+---
+
+### 5. **Validarea unei adrese de email**
+Acest exemplu verifică dacă o adresă de email are un format simplu valid.
+
+```java
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
+public class EmailValidation {
+    public static void main(String[] args) {
+        String email = "exemplu@domeniu.com";
+        
+        // Expresie regulată pentru email
+        String regex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+        
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(email);
+        
+        if (matcher.matches()) {
+            System.out.println("Email valid!");
+        } else {
+            System.out.println("Email invalid!");
+        }
+    }
+}
+```
+
+**Explicație:**
+- **`^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$`**: Aceasta este o expresie regulată simplă pentru validarea adreselor de email. Permite litere, cifre, caractere speciale precum `+`, `_`, `.` sau `-`, urmate de simbolul `@` și domeniu.
+
+---
+
+### 6. **Verificarea unui cod poștal simplu de 5 cifre**
+Acest exemplu validează un cod poștal format din 5 cifre.
+
+```java
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
+public class PostalCodeValidation {
+    public static void main(String[] args) {
+        String postalCode = "12345";  // Cod poștal valid
+        
+        // Expresie regulată pentru cod poștal de 5 cifre
+        String regex = "\\d{5}";
+        
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(postalCode);
+        
+        if (matcher.matches()) {
+            System.out.println("Cod poștal valid!");
+        } else {
+            System.out.println("Cod poștal invalid!");
+        }
+    }
+}
+```
+
+**Explicație:**
+- **`\\d{5}`**: Reprezintă exact 5 cifre consecutive.
+
+---
+
+### 7. **Separarea unui șir de caractere pe baza unui separator (virgulă)**
+Acest exemplu împarte un șir de cuvinte separate prin virgulă într-un array de string-uri.
+
+```java
+public class SplitStringExample {
+    public static void main(String[] args) {
+        String text = "mere, pere, prune, portocale";
+        
+        // Folosim expresia regulată pentru a despărți textul la fiecare virgulă
+        String[] fructe = text.split(",\\s*");
+        
+        for (String fruct : fructe) {
+            System.out.println(fruct);
+        }
+    }
+}
+```
+
+**Explicație:**
+- **`,\\s*`**: Desparte șirul la fiecare virgulă, ignorând spațiile din jurul ei. `\\s*` înseamnă „zero sau mai multe spații albe”.
+
+---
+
+Aceste exemple acoperă situații comune și sunt destul de ușoare pentru a înțelege cum funcționează expresiile regulate în Java. Ele te pot ajuta să validezi date, să cauți și să modifici șiruri de caractere într-un mod eficient.
