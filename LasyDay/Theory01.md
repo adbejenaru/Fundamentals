@@ -56,3 +56,51 @@ Numărul este: 5
 - Condiția de oprire trebuie verificată **după** executarea codului. 
 
 Un exemplu comun este atunci când soliciți o valoare de la utilizator și vrei să continui solicitarea până când este introdusă o valoare validă.
+
+Un exemplu practic al buclei `do-while` este atunci când ceri utilizatorului să introducă o valoare validă și continui solicitarea până când aceasta respectă anumite condiții, de exemplu, introducerea unui număr între 1 și 10.
+
+Iată cum ar arăta acest exemplu:
+
+```java
+import java.util.Scanner;
+
+public class ExempluDoWhile {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int numar;
+
+        do {
+            System.out.print("Introdu un număr între 1 și 10: ");
+            numar = scanner.nextInt();
+            
+            if (numar < 1 || numar > 10) {
+                System.out.println("Numărul nu este valid. Încearcă din nou.");
+            }
+        } while (numar < 1 || numar > 10);
+
+        System.out.println("Ai introdus un număr valid: " + numar);
+    }
+}
+```
+
+### Explicație:
+
+1. Programul cere utilizatorului să introducă un număr între 1 și 10.
+2. Codul din blocul `do` se execută **cel puțin o dată**, indiferent de valoarea introdusă.
+3. Dacă numărul introdus nu este în intervalul 1-10, programul afișează un mesaj de eroare și cere din nou introducerea unui număr.
+4. **Condiția `while`** verifică dacă numărul este în afara intervalului. Cât timp această condiție este adevărată, bucla continuă.
+5. Când utilizatorul introduce un număr între 1 și 10, condiția devine `false`, iar bucla se oprește, afișând mesajul de confirmare.
+
+### Exemplu de rulare:
+
+```
+Introdu un număr între 1 și 10: 15
+Numărul nu este valid. Încearcă din nou.
+Introdu un număr între 1 și 10: -3
+Numărul nu este valid. Încearcă din nou.
+Introdu un număr între 1 și 10: 7
+Ai introdus un număr valid: 7
+```
+
+### Când este util acest exemplu?
+Acest tip de buclă `do-while` este folosit pentru validarea input-ului de la utilizator, asigurându-te că valoarea introdusă este corectă înainte de a continua programul.
